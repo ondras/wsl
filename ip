@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Detect and print out current WSL2 IP
+
+IP=`ifconfig eth0 | grep -o "inet [^ ]\+" | cut -d " " -f 2`
+
+echo "IP: $IP"
+echo "python3 -m http.server - http://$IP:8000"

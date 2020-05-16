@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# Launch a session dbus
+
+UID=1000
+DIR=/run/user/$UID
+sudo mkdir -p $DIR
+sudo chown $UID:$UID $DIR
+dbus-daemon --session --address=unix:path=$DIR/bus --fork
